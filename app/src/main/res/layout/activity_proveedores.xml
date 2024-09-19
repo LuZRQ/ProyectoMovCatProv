@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Proveedores">
+    <!-- Imagen de fondo con texto grande "Proveedores" -->
+    <ImageView
+        android:id="@+id/header_image"
+        android:layout_width="413dp"
+        android:layout_height="160dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/fontcuadr"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Texto Título encima de la imagen -->
+    <TextView
+        android:id="@+id/tv_proveedor_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/bigshot_one"
+        android:text="Proveedores"
+        android:textColor="@android:color/white"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/header_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/header_image"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <!-- Campo de texto: ID -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textFieldID"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="ID Proveedor"
+        app:helperText="Ingrese el ID del proveedor"
+        app:layout_constraintTop_toBottomOf="@id/header_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/idProveedor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bordes" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Campo de texto: Nombre -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textFieldNombre"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Nombre"
+        app:helperText="Ingrese el nombre del proveedor"
+        app:layout_constraintTop_toBottomOf="@id/textFieldID"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nomProvedor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bordes" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Campo de texto: NIT -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textFieldNit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="NIT"
+        app:helperText="Ingrese el NIT del proveedor"
+        app:layout_constraintTop_toBottomOf="@id/textFieldNombre"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nitProveedor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bordes" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Campo de texto: Dirección -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textFieldDireccion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Dirección"
+        app:helperText="Ingrese la dirección del proveedor"
+        app:layout_constraintTop_toBottomOf="@id/textFieldNit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/adressProveedor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bordes" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Campo de texto: Teléfono -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textFieldTelefono"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Teléfono"
+        app:helperText="Ingrese el teléfono del proveedor"
+        app:layout_constraintTop_toBottomOf="@id/textFieldDireccion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/telefProvedor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bordes"
+            android:inputType="phone" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Botón Guardar -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnGuardarProveedor"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Guardar"
+        android:textAllCaps="false"
+        android:background="@drawable/btn1"
+        app:backgroundTint="@null"
+        app:layout_constraintTop_toBottomOf="@id/textFieldTelefono"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

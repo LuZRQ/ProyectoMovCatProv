@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisProduct">
+
+
+    <!-- Imagen de fondo con texto grande "Producto" -->
+    <ImageView
+        android:id="@+id/header_image"
+        android:layout_width="434dp"
+        android:layout_height="116dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/fontcuadr"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Texto Título encima de la imagen -->
+    <TextView
+        android:id="@+id/tv_categoria_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registro de Producto"
+        android:fontFamily="@font/bigshot_one"
+        android:textSize="40sp"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/header_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/header_image"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <!-- ScrollView para los campos de texto y botones -->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header_image"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+
+
+        <!-- Layout para los campos de texto y botones -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Campo de texto: Código del Producto -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxStrokeColor="@color/black"
+                app:helperText="Ingrese el código del producto">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtCodigoProducto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bordes"
+                    android:hint="Código"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Campo de texto: Nombre del Producto -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:boxStrokeColor="@color/black"
+                app:helperText="Ingrese el nombre del producto">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtNombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bordes"
+                    android:hint="Nombre"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Campo de texto: Precio del Producto -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:boxStrokeColor="@color/black"
+                app:helperText="Ingrese el precio del producto">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtPrecio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bordes"
+                    android:hint="Precio"
+                    android:inputType="numberDecimal" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Campo de texto: ID Categoría -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:boxStrokeColor="@color/black"
+                    app:helperText="Ingrese el ID de la categoría">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/idCategoria"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Codigo de categoria"
+                        android:background="@drawable/bordes" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/btnBuscarCategoria"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="Buscar"
+                    android:background="@drawable/btn2"
+                    app:backgroundTint="@null"/>
+            </LinearLayout>
+
+            <!-- Campo de texto: Nombre de la Categoría -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:boxStrokeColor="@color/black"
+                app:helperText="Ingrese el nombre de la categoría">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/nomCategoria"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nombre Categoria"
+                    android:background="@drawable/bordes" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Campo de texto: Descripción de la Categoría -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:boxStrokeColor="@color/black"
+                app:helperText="Ingrese una breve descripción">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/descripCategoria"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Descripcion categoria"
+                    android:background="@drawable/bordes" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Campo de texto: ID Proveedor -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:boxStrokeColor="@color/black"
+                    app:helperText="Ingrese el ID del proveedor">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/idProveedor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Código proveedor"
+                        android:background="@drawable/bordes" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/btnBuscarProveedor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="Buscar"
+                    android:background="@drawable/btn2"
+                    app:backgroundTint="@null"
+                    />
+            </LinearLayout>
+
+            <!-- Campo de texto: Nombre del Proveedor -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:boxStrokeColor="@color/black"
+                app:helperText="Ingrese el nombre del proveedor">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/nomProveedor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nombre proveedor"
+                    android:background="@drawable/bordes" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:boxStrokeColor="@color/black"
+                app:helperText="Ingrese el NIT del proveedor">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/nitProveedores"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="NIT proveedor"
+                    android:background="@drawable/bordes" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:boxStrokeColor="@color/black"
+                app:helperText="Ingrese la direccion del proveedor">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/direccionProveedor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Direccion proveedor"
+                    android:background="@drawable/bordes" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <!-- Campo de texto: Teléfono del Proveedor -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:boxStrokeColor="@color/black"
+                app:helperText="Ingrese el teléfono del proveedor">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/telProveedor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Telefono proveedor"
+                    android:background="@drawable/bordes" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Botón Guardar -->
+            <Button
+                android:id="@+id/btnRegistroProducto"
+                android:layout_width="366dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/btn1"
+                android:text="Guardar"
+                app:backgroundTint="@null" />
+
+            <!-- ListView para mostrar productos -->
+            <ListView
+                android:id="@+id/listDatosProductos"
+                android:layout_width="match_parent"
+                android:layout_height="345dp"
+                android:layout_marginTop="16dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
