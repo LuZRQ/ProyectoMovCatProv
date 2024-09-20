@@ -85,7 +85,6 @@ class RegisProduct : AppCompatActivity() {
 
     private fun estadoBoton() {
         btnRegistroPro.setOnClickListener {
-            // Verificamos que los campos no estén vacíos
             if (txtCodigo.text.isEmpty() || txtNom.text.isEmpty() || txtPrecio.text.isEmpty() || txtIdCategoria.text.isEmpty() || txtIdProvv.text.isEmpty()) {
                 Toast.makeText(this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -95,37 +94,30 @@ class RegisProduct : AppCompatActivity() {
                 val adminsql = AdminSQLiteOpenHelper(this, "administracion", null, 1)
                 val db = adminsql.writableDatabase
                 val registro = ContentValues()
-
-                // Creamos el objeto Producto
                 val objeto = Productos(
-                    txtNom.text.toString(), // Nombre del producto
-                    txtPrecio.text.toString().toDouble(), // Precio del producto
-                    txtCodigo.text.toString().toInt(), // Código del producto
-                    txtIdProvv.text.toString().toInt(), // ID del proveedor
-                    txtIdCategoria.text.toString().toInt() // ID de la categoría
+                    txtNom.text.toString(),
+                    txtPrecio.text.toString().toDouble(),
+                    txtCodigo.text.toString().toInt(),
+                    txtIdCategoria.text.toString().toInt(),
+                    txtIdProvv.text.toString().toInt()
+
                 )
 
-                // Registro de depuración para verificar los valores del objeto
                 Log.d("DEBUG", "Producto creado: ${objeto.getProductos()}, ${objeto.getNombre()}, ${objeto.getPrecio()}, ${objeto.getIdCategoria()}, ${objeto.getIdProveedor()}")
-
-                // Insertamos en la base de datos
                 registro.put("id_productos", objeto.getProductos())
                 registro.put("nombre", objeto.getNombre())
                 registro.put("precio", objeto.getPrecio())
-                registro.put("id_proveedor", objeto.getIdProveedor())
                 registro.put("id_categoria", objeto.getIdCategoria())
+                registro.put("id_proveedor", objeto.getIdProveedor())
+
 
                 val result = db.insert("productos", null, registro)
                 db.close()
 
-                // Verifica si la inserción fue exitosa
                 if (result == -1L) {
                     Toast.makeText(this, "Error al registrar el producto", Toast.LENGTH_SHORT).show()
                 } else {
-                    // Limpiamos los campos de texto
                     limpiarCampos()
-
-                    // Añadimos el nuevo producto a la lista con un formato bonito
                     productosList.add(
                         "ID: ${objeto.getProductos()}  \n" +
                                 "Nombre: ${objeto.getNombre()} \n" +
@@ -134,15 +126,12 @@ class RegisProduct : AppCompatActivity() {
                                 "Proveedor: ${objeto.getIdProveedor()} \n" +
                                 "----------------------------"
                     )
-
-                    // Notificamos al adaptador que los datos han cambiado
                     adapter.notifyDataSetChanged()
 
                     Toast.makeText(this, "Producto registrado", Toast.LENGTH_SHORT).show()
                 }
 
             } catch (e: Exception) {
-                // Manejamos cualquier excepción que ocurra durante la ejecución
                 Toast.makeText(this, "Error al registrar el producto: ${e.message}", Toast.LENGTH_LONG).show()
                 e.printStackTrace()
             }
